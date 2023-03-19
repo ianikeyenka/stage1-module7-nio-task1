@@ -10,14 +10,11 @@ public class FileReader {
         String ageLine = null;
         String emailLine = null;
         String phoneLine = null;
-        try {
-            InputStream input = new FileInputStream(file.getPath());
-            BufferedReader br = new BufferedReader(new InputStreamReader(input));
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file.getPath())))) {
             nameLine = br.readLine();
             ageLine = br.readLine();
             emailLine = br.readLine();
             phoneLine = br.readLine();
-            br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
