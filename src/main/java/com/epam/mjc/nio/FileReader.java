@@ -21,10 +21,22 @@ public class FileReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String[] name = nameLine.split(": ");
-        String[] age = ageLine.split(": ");
-        String[] email = emailLine.split(": ");
-        String[] phone = phoneLine.split(": ");
+        String[] name = new String[0];
+        if (nameLine != null) {
+            name = nameLine.split(": ");
+        }
+        String[] age = new String[0];
+        if (ageLine != null) {
+            age = ageLine.split(": ");
+        }
+        String[] email = new String[0];
+        if (emailLine != null) {
+            email = emailLine.split(": ");
+        }
+        String[] phone = new String[0];
+        if (phoneLine != null) {
+            phone = phoneLine.split(": ");
+        }
         return new Profile(name[1], Integer.parseInt(age[1]), email[1], Long.parseLong(phone[1]));
     }
 }
